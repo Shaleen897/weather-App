@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="card ">
+        <div>
+            <div class="hora">{{time | date:'shortTime'}}
+            </div>
+            <div class="date">{{time | date:'fullDate'}}
+            </div>
+        </div>
+
+        <div class="lugar">
+            {{weather?.name}}
+        </div>
+    </div>
+
+    <div class="containerDos">
+        <div class="content">
+        <div class="form">
+            <div class="welcome">
+                <h1>Welcome to our Weather App</h1>
+                <p>type your city code and City Name</p>
+            </div>
+            <form class="" (submit)="onSubmit(cityName, cityCode)">
+                <input type="text" placeholder="City Name" autofocus="autofocus" #cityName/>
+                <input type="text" placeholder="City Code" #cityCode/>
+                <button class="btn">Get Weather</button>
+            </form>
+
+        </div>
+
+        <div>
+            <h1 class="title-info">Weather Information</h1>
+
+            <div class="info">
+                <div class="Lines">
+                    <div>Tempesure:</div>
+                    <div>{{weather?.main.temp}}
+                        C</div>
+                </div>
+                <div class="Lines">
+                    <div>Humidity:</div>
+                    <div>{{weather?.main.humidity}}%</div>
+                </div>
+                <div class="Lines">
+                    <div>Pressure:</div>
+                    <div>{{weather?.main.pressure}}</div>
+                </div>
+                <div class="Lines">
+                    <div>Wind Speed:</div>
+                    <div>{{weather?.wind.speed}}</div>
+                </div>
+                <div class="Lines">
+                    <div>Sunrise:</div>
+                    <div>{{weather?.sys?.sunrise | date: "shortTime"}}</div>
+                </div>
+                <div class="Lines">
+                    <div>Sunset:</div>
+                    <div>{{weather?.sys?.sunset | date: "shortTime"}}</div>
+                </div>
+                <div class="Lines">
+                    <div>Clouds:</div>
+                    <div>{{weather?.weather[0].description}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="weatherComponent">
+        <app-weatherDays [days]="days"></app-weatherDays>
+    </div>
+
+</div>
+

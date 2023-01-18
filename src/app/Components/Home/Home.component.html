@@ -1,10 +1,9 @@
 <div class="container">
     <div class="card ">
         <div>
-            <div class="hora">{{time | date:'shortTime'}}
-            </div>
-            <div class="date">{{time | date:'fullDate'}}
-            </div>
+            <div class="hora">{{time | date:'shortTime'}} </div>
+            <div><small>Dominican Republic Time</small></div>
+            <div class="date">{{time | date:'fullDate'}}</div>
         </div>
 
         <div class="lugar">
@@ -33,20 +32,20 @@
             <div class="info">
                 <div class="Lines">
                     <div>Tempesure:</div>
-                    <div>{{weather?.main.temp}}
-                        C</div>
+                    <div>{{weather?.main.temp | number: '1.0-0'}} °C
+                        </div>
                 </div>
                 <div class="Lines">
                     <div>Humidity:</div>
-                    <div>{{weather?.main.humidity}}%</div>
+                    <div>{{weather?.main.humidity | number: '1.0-0'}}%</div>
                 </div>
                 <div class="Lines">
                     <div>Pressure:</div>
-                    <div>{{weather?.main.pressure}}</div>
+                    <div>{{weather?.main.pressure | number: '1.0-0'}}</div>
                 </div>
                 <div class="Lines">
                     <div>Wind Speed:</div>
-                    <div>{{weather?.wind.speed}}</div>
+                    <div>{{weather?.wind.speed | number: '1.0-0'}}</div>
                 </div>
                 <div class="Lines">
                     <div>Sunrise:</div>

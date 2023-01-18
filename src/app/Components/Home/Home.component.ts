@@ -15,11 +15,14 @@ export class HomeComponent implements OnInit {
   
  location:any = {cityName:"Santo Domingo", countryCode:"Dom"};
  weather:any;
- // days:any = "";
+ url2:any = "";
  
  url:any = '';
 
  Api_Key:string = "ceba139414adf3dc213109914321147f";
+
+ locatio:any;
+  locationJs: any;
 
   constructor(private Servicio:Services) {
   
@@ -29,6 +32,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
    this.getWeather(this.location.cityName, this.location.countryName);
+
+/*
+  navigator.geolocation.getCurrentPosition((position)=>{
+    console.log(position.coords.latitude);
+    this.locationJs = position.coords;
+  })*/
   
   }
 
@@ -36,7 +45,7 @@ export class HomeComponent implements OnInit {
     this.Servicio.getWeather(cityName, countryCode)
     .subscribe(
       res => {
-        console.log(res);
+       // console.log(res);
         this.weather = res;
         this.OneCallApi(this.weather?.id);
       
@@ -71,7 +80,7 @@ OneCallApi(id:number){
  .then(response => response.json())
  .then(response => {
      this.days = response;
-     console.log(this.days)
+    // console.log(this.days)
   })
  .catch(err => console.error(err));
   
